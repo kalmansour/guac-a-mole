@@ -18,7 +18,6 @@ const Grid = () => {
   function startGame() {
     const timer = setInterval(generateIndex, 2000);
     setTimer(timer);
-    console.log(timer);
     setCountdown(true);
   }
 
@@ -29,39 +28,41 @@ const Grid = () => {
   };
 
   return (
-    <Container>
-      {countdown ? <Timer score={score} /> : <></>}
-      <p>Score: {score}</p>
-      <h3>Time is ticking press start</h3>
-      <button onClick={startGame}>start</button>
-      <Box>
-        <div>
-          {Array(5)
-            .fill()
-            .map((_, n) => {
-              if (index === n) {
-                return (
-                  <ImageContainer>
-                    <AvocadoImage
-                      src={
-                        "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png)"
-                      }
-                      alt="avocado"
-                      onClick={() => countScore(n)}
-                    />
-                  </ImageContainer>
-                );
-              } else {
-                return (
-                  <ImageContainer>
-                    <Hole />
-                  </ImageContainer>
-                );
-              }
-            })}
-        </div>
-      </Box>
-    </Container>
+    <container>
+      <Container>
+        {countdown ? <Timer score={score} /> : <></>}
+        <p>Score: {score} pts</p>
+        <h3>Time is ticking press start</h3>
+        <button onClick={startGame}>start</button>
+        <Box>
+          <div>
+            {Array(5)
+              .fill()
+              .map((_, n) => {
+                if (index === n) {
+                  return (
+                    <ImageContainer>
+                      <AvocadoImage
+                        src={
+                          "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png)"
+                        }
+                        alt="avocado"
+                        onClick={() => countScore(n)}
+                      />
+                    </ImageContainer>
+                  );
+                } else {
+                  return (
+                    <ImageContainer>
+                      <Hole />
+                    </ImageContainer>
+                  );
+                }
+              })}
+          </div>
+        </Box>
+      </Container>
+    </container>
   );
 };
 
@@ -72,7 +73,8 @@ const Box = styled.div`
   flex-wrap: wrap;
   background-color: white;
   border: solid;
-  border-color: black;
+  border-color: #32cd32;
+  border-width: 5px;
   margin: 20px 20px;
   height: 600px;
   width: 900px;

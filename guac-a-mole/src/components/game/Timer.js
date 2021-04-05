@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default class Timer extends Component {
-  state = { minutes: 0, seconds: 10 };
+  state = { minutes: 0, seconds: 1 };
   componentDidMount() {
     this.myInterval = setInterval(() => {
       const { seconds, minutes } = this.state;
@@ -35,18 +35,23 @@ export default class Timer extends Component {
     return (
       <h4>
         {minutes === 0 && seconds === 0 ? (
-          <Container2>
-            <h1>GameOver</h1>
-            <p>Enjoy the guac!</p>
-            <p>Score: {this.props.score}</p>
-            <HomeGif
-              src="https://i0.wp.com/kiyafries.com/wp-content/uploads/2018/04/guac-scoop.mp4.gif?fit=1170%2C790&ssl=1"
-              alt="guacamole"
-            />
-            <Link to="/">
-              <button>Hungry for more</button>
-            </Link>
-          </Container2>
+          <container>
+            <Container>
+              <div>
+                <Title>Game Over</Title>
+                <Scoreboard>Score: {this.props.score} pts</Scoreboard>
+                <Subtitle>Enjoy The Guac!</Subtitle>
+              </div>
+
+              <HomeGif
+                src="https://i0.wp.com/kiyafries.com/wp-content/uploads/2018/04/guac-scoop.mp4.gif?fit=1170%2C790&ssl=1"
+                alt="guacamole"
+              />
+              <Link to="/">
+                <Button>Hungry for more</Button>
+              </Link>
+            </Container>
+          </container>
         ) : (
           <div>
             Time Left: {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
@@ -57,29 +62,37 @@ export default class Timer extends Component {
   }
 }
 
-// const Box = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   background-color: white;
-//   border: solid;
-//   border-color: black;
-//   margin: 20px 20px;
-//   height: 600px;
-//   width: 900px;
-//   align-items: center;
-// `;
+const Title = styled.h1`
+  font-weight: bold;
+  font-size: 50px;
+  text-align: "center";
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+`;
+
+const Scoreboard = styled.h2`
+  /* font-size: 40px; */
+  text-align: "center";
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+`;
+
+const Subtitle = styled.h3`
+  /* font-size: 20px; */
+  text-align: "center";
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+`;
 
 const HomeGif = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 650px;
+  height: 350px;
   /* padding-bottom: 10px; */
-  border: thick solid;
-  border-color: ${({ theme }) => theme.gold};
+  border: solid;
+  border-color: #32cd32;
 `;
 
-const Container2 = styled.div`
+const Container = styled.div`
   /* opacity: 0.2; */
   background: white;
   width: 100%;
@@ -90,19 +103,15 @@ const Container2 = styled.div`
   position: fixed;
 `;
 
-// width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// #navi,
-// #infoi {
-//   width: 100%;
-//   height: 100%;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// }
-// #infoi {
-//   z-index: 10;
-// }
+const Button = styled.button`
+  font-size: 20px;
+  font-weight: bolder;
+  background-color: #32cd32;
+  border: solid;
+  border-width: 5px;
+  border-color: gold;
+  color: tomato;
+  margin: 20px 20px;
+  height: 100px;
+  width: 200px;
+`;

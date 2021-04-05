@@ -10,17 +10,7 @@ const Home = () => {
         <Subtitle>Challenge The Avocados & You Will Be Rewarded</Subtitle>
         <div>
           <Link to="/game">
-            <button
-              style={{
-                backgroundColor: "#32CD32",
-                color: "white",
-                margin: "20px 20px",
-                height: "50px",
-                width: "80px",
-              }}
-            >
-              Let's play
-            </button>
+            <Button>Accept Challenge</Button>
           </Link>
         </div>
       </Container>
@@ -46,8 +36,19 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.p`
-  /* font-weight: bold; */
   font-size: 40px;
   text-align: "center";
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+`;
+
+const Button = styled.button`
+  font-size: 50px;
+  background-color: white;
+  border: solid;
+  border-width: 4px;
+  border-color: #32cd32;
+  color: #32cd32;
+  margin: 20px 20px;
+  height: 200px;
+  width: 400px;
 `;
