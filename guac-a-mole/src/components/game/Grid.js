@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Avocado from "./Avocado";
+// import Avocado from "./Avocado";
 
 // Components
-import Circle from "./Circle";
+// import Circle from "./Circle";
 // import Score from "./Score";
-import Time from "./Time";
+// import Time from "./Time";
 
 // import Avocado from "./Avocado";
 
 const Grid = () => {
-  const circles = [Circle, Circle, Circle, Circle, Circle];
+  // const circles = [Circle, Circle, Circle, Circle, Circle];
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState();
+  const [imgSrc, setImgSrc] = useState(
+    "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png"
+  );
 
   const generateIndex = () => {
     setIndex(Math.floor(Math.random() * 6));
@@ -31,63 +34,57 @@ const Grid = () => {
     setIndex(0);
   };
 
-  const onClick = (n) => {
+  // const onClick = (n) => {
+  //   if (index === n) {
+  //     setScore((score) => score + 1);
+  //   }
+  // };
+
+  const countScore = (n) => {
     if (index === n) {
-      setScore((score) => score + 1);
+      setScore((score) => score + 5);
     }
+  };
+
+  const setGuacamole = () => {
+    setInterval(
+      setImgSrc(
+        "https://aromaticessence.co/wp-content/uploads/2020/04/Guacamole4-500x500.jpg"
+      ),
+      1000
+    );
+    // setImgSrc(
+    //   "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png"
+    // );
   };
 
   return (
     <Container>
       <button onClick={startGame}>start game</button>
       <button onClick={endGame}>end game</button>
-      <p>score: {score}</p>
+      <p>Score: {score}</p>
+      <p>Time Left: min</p>
       <Box>
-        <style>
-          {`
-        .hole {
-          background-color: black;
-          border: solid;
-          border-color: black;
-          border-radius: 50%;
-          height: 200px;
-          width: 200px;
-          margin-left: 50px;
-          margin:10px
-        }
-
-        .container {
-          display: inline-block;
-        }
-
-        img {
-          height: 200px;
-          width: 200px;
-          margin-left: 60px;
-        }
-      `}
-        </style>
         <div>
           {Array(5)
             .fill()
             .map((_, n) => {
               if (index === n) {
                 return (
-                  <div className="container">
-                    <img
-                      src={
-                        "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png"
-                      }
+                  <ImageContainer>
+                    <AvocadoImage
+                      src={imgSrc}
                       alt="avocado"
-                      onClick={() => onClick(n)}
+                      onClick={() => countScore(n)}
+                      // onClick={() => setGuacamole()}
                     />
-                  </div>
+                  </ImageContainer>
                 );
               } else {
                 return (
-                  <div className="container">
-                    <div className="hole"></div>
-                  </div>
+                  <ImageContainer>
+                    <Hole />
+                  </ImageContainer>
                 );
               }
             })}
@@ -116,4 +113,25 @@ const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+`;
+
+const Hole = styled.div`
+  background-color: black;
+  border: solid;
+  border-color: black;
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin-left: 50px;
+  margin: 10px;
+`;
+
+const AvocadoImage = styled.img`
+  height: 200px;
+  width: 200px;
+  margin-left: 60px;
+`;
+
+const ImageContainer = styled.div`
+  display: inline-block;
 `;
