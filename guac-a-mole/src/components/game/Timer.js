@@ -37,9 +37,14 @@ export default class Timer extends Component {
         {minutes === 0 && seconds === 0 ? (
           <Container2>
             <h1>GameOver</h1>
+            <p>Enjoy the guac!</p>
             <p>Score: {this.props.score}</p>
+            <HomeGif
+              src="https://i0.wp.com/kiyafries.com/wp-content/uploads/2018/04/guac-scoop.mp4.gif?fit=1170%2C790&ssl=1"
+              alt="guacamole"
+            />
             <Link to="/">
-              <button>Start Over</button>
+              <button>Hungry for more</button>
             </Link>
           </Container2>
         ) : (
@@ -63,6 +68,16 @@ export default class Timer extends Component {
 //   width: 900px;
 //   align-items: center;
 // `;
+
+const HomeGif = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  /* padding-bottom: 10px; */
+  border: thick solid;
+  border-color: ${({ theme }) => theme.gold};
+`;
 
 const Container2 = styled.div`
   /* opacity: 0.2; */
