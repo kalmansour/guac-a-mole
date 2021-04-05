@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-// import Avocado from "./Avocado";
 
 // Components
-// import Circle from "./Circle";
-// import Score from "./Score";
 // import Time from "./Time";
-
-// import Avocado from "./Avocado";
 
 const Grid = () => {
   // const circles = [Circle, Circle, Circle, Circle, Circle];
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState();
-  const [imgSrc, setImgSrc] = useState(
-    "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png"
-  );
+  // const [guacamole, setGuacamole] = useState(
+  //   "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png)"
+  // );
 
   const generateIndex = () => {
     setIndex(Math.floor(Math.random() * 6));
@@ -34,28 +29,15 @@ const Grid = () => {
     setIndex(0);
   };
 
-  // const onClick = (n) => {
-  //   if (index === n) {
-  //     setScore((score) => score + 1);
-  //   }
+  // const stopGame = () => {
+  //   setTimeout();
+  //   alert("Game Over");
   // };
 
   const countScore = (n) => {
     if (index === n) {
       setScore((score) => score + 5);
     }
-  };
-
-  const setGuacamole = () => {
-    setInterval(
-      setImgSrc(
-        "https://aromaticessence.co/wp-content/uploads/2020/04/Guacamole4-500x500.jpg"
-      ),
-      1000
-    );
-    // setImgSrc(
-    //   "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png"
-    // );
   };
 
   return (
@@ -73,10 +55,11 @@ const Grid = () => {
                 return (
                   <ImageContainer>
                     <AvocadoImage
-                      src={imgSrc}
+                      src={
+                        "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png)"
+                      }
                       alt="avocado"
                       onClick={() => countScore(n)}
-                      // onClick={() => setGuacamole()}
                     />
                   </ImageContainer>
                 );
