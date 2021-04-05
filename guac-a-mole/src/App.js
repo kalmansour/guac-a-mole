@@ -1,12 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
+import styled from "styled-components";
+
+// Components
+import Home from "./components/home/Home";
 
 function App() {
-  return (
-    <div className="App">
-      <h3>Hello Guac-a-mole</h3>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
