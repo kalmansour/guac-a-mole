@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default class Timer extends Component {
-  state = { minutes: 0, seconds: 1 };
+  state = { minutes: 0, seconds: 30 };
   componentDidMount() {
     this.myInterval = setInterval(() => {
       const { seconds, minutes } = this.state;
