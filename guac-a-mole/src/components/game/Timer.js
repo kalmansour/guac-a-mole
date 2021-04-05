@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default class Timer extends Component {
@@ -36,7 +37,10 @@ export default class Timer extends Component {
         {minutes === 0 && seconds === 0 ? (
           <Container2>
             <h1>GameOver</h1>
-            <p>Score: {this.props.score}</p>{" "}
+            <p>Score: {this.props.score}</p>
+            <Link to="/">
+              <button>Play Again</button>
+            </Link>
           </Container2>
         ) : (
           <div>
@@ -60,14 +64,8 @@ export default class Timer extends Component {
 //   align-items: center;
 // `;
 
-const Container = styled.div`
-  width: 100px;
-  height: 100px;
-  position: relative;
-`;
-
 const Container2 = styled.div`
-  /* opacity: 0.5; */
+  /* opacity: 0.2; */
   background: white;
   width: 100%;
   height: 100%;
