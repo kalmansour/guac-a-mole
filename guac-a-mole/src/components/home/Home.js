@@ -1,20 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Home = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        border: "solid",
-        borderColor: "#32CD32",
-      }}
-    >
-      <h1 style={{ textAlign: "center", fontFamily: "sans-serif" }}>
-        Guac-A-Mole
-      </h1>
+    <Container>
+      <Title>Guac-A-Mole</Title>
       <h4 style={{ textAlign: "center", fontFamily: "sans-serif" }}>
         Welcome to guacamole!
       </h4>
@@ -33,8 +24,22 @@ const Home = () => {
           </button>
         </Link>
       </div>
-    </div>
+    </Container>
   );
 };
 
 export default Home;
+
+const Container = styled.div`
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.h1`
+  font-weight: bold;
+  font-size: 62px;
+  text-align: "center";
+  font-family: "sans-serif";
+`;

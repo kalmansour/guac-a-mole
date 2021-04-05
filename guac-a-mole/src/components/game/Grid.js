@@ -1,3 +1,4 @@
+// Libraries
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -5,13 +6,10 @@ import styled from "styled-components";
 import Timer from "./Timer";
 
 const Grid = () => {
-  // const circles = [Circle, Circle, Circle, Circle, Circle];
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [timer, setTimer] = useState();
-  // const [guacamole, setGuacamole] = useState(
-  //   "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png)"
-  // );
+  const [countdown, setCountdown] = useState(false);
 
   const generateIndex = () => {
     setIndex(Math.floor(Math.random() * 6));
@@ -21,13 +19,8 @@ const Grid = () => {
     const timer = setInterval(generateIndex, 2000);
     setTimer(timer);
     console.log(timer);
+    setCountdown(true);
   }
-
-  const endGame = () => {
-    clearInterval(timer);
-    setScore(0);
-    setIndex(0);
-  };
 
   const countScore = (n) => {
     if (index === n) {
@@ -37,8 +30,8 @@ const Grid = () => {
 
   return (
     <Container>
-      <button onClick={endGame}>end game</button>
-      <Timer score={score} /> <p>Score: {score}</p>
+      {countdown ? <Timer score={score} /> : <></>}
+      <p>Score: {score}</p>
       <h3>Time is ticking press start</h3>
       <button onClick={startGame}>start</button>
       <Box>

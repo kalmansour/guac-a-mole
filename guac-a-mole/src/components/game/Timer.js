@@ -39,7 +39,7 @@ export default class Timer extends Component {
             <h1>GameOver</h1>
             <p>Score: {this.props.score}</p>
             <Link to="/">
-              <button>Play Again</button>
+              <button>Start Over</button>
             </Link>
           </Container2>
         ) : (
