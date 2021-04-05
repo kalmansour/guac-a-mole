@@ -1,11 +1,8 @@
-import "./App.css";
-import styled from "styled-components";
-
 // Components
-import Home from "./components/home/Home";
+import Routes from "./components/navigation/Routes";
 
 function App() {
-  return <Home />;
+  return <Routes />;
 }
 
 export default App;

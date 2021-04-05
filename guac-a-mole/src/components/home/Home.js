@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -18,17 +19,19 @@ const Home = () => {
         Make the fastest and most delicious guacamole
       </h4>
       <div>
-        <button
-          style={{
-            backgroundColor: "#32CD32",
-            color: "white",
-            margin: "20px 20px",
-            height: "50px",
-            width: "80px",
-          }}
-        >
-          Start
-        </button>
+        <Link to="/game">
+          <button
+            style={{
+              backgroundColor: "#32CD32",
+              color: "white",
+              margin: "20px 20px",
+              height: "50px",
+              width: "80px",
+            }}
+          >
+            Start
+          </button>
+        </Link>
       </div>
     </div>
   );
