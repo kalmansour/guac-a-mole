@@ -39,19 +39,59 @@ const Grid = () => {
 
   return (
     <Container>
-      <Title>Let's Go!</Title>
       <button onClick={startGame}>start game</button>
       <button onClick={endGame}>end game</button>
       <p>score: {score}</p>
-      <Time />
       <Box>
-        {circles.fill().map((_, n) => {
-          if (index === n) {
-            return <Avocado onClick={() => onClick(n)} />;
-          } else {
-            return <Circle />;
-          }
-        })}
+        <style>
+          {`
+        .hole {
+          background-color: black;
+          border: solid;
+          border-color: black;
+          border-radius: 50%;
+          height: 200px;
+          width: 200px;
+          margin-left: 50px;
+          margin:10px
+        }
+
+        .container {
+          display: inline-block;
+        }
+
+        img {
+          height: 200px;
+          width: 200px;
+          margin-left: 60px;
+        }
+      `}
+        </style>
+        <div>
+          {Array(5)
+            .fill()
+            .map((_, n) => {
+              if (index === n) {
+                return (
+                  <div className="container">
+                    <img
+                      src={
+                        "https://static.wixstatic.com/media/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png/v1/fill/w_406,h_458,fp_0.50_0.50,lg_1,q_95/2cd43b_877c62d8964843ed9c5201352de54f6f~mv2.png"
+                      }
+                      alt="avocado"
+                      onClick={() => onClick(n)}
+                    />
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="container">
+                    <div className="hole"></div>
+                  </div>
+                );
+              }
+            })}
+        </div>
       </Box>
     </Container>
   );
@@ -76,8 +116,4 @@ const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-`;
-
-const Title = styled.h1`
-  color: green;
 `;
