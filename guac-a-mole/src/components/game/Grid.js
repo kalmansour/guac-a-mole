@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 // Components
-// import Time from "./Time";
+import Timer from "./Timer";
 
 const Grid = () => {
   // const circles = [Circle, Circle, Circle, Circle, Circle];
@@ -17,22 +17,17 @@ const Grid = () => {
     setIndex(Math.floor(Math.random() * 6));
   };
 
-  const startGame = () => {
+  function startGame() {
     const timer = setInterval(generateIndex, 2000);
     setTimer(timer);
     console.log(timer);
-  };
+  }
 
   const endGame = () => {
     clearInterval(timer);
     setScore(0);
     setIndex(0);
   };
-
-  // const stopGame = () => {
-  //   setTimeout();
-  //   alert("Game Over");
-  // };
 
   const countScore = (n) => {
     if (index === n) {
@@ -42,10 +37,10 @@ const Grid = () => {
 
   return (
     <Container>
-      <button onClick={startGame}>start game</button>
       <button onClick={endGame}>end game</button>
-      <p>Score: {score}</p>
-      <p>Time Left: min</p>
+      <Timer score={score} /> <p>Score: {score}</p>
+      <h3>Time is ticking press start</h3>
+      <button onClick={startGame}>start</button>
       <Box>
         <div>
           {Array(5)
