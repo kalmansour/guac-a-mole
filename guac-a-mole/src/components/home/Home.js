@@ -16,7 +16,7 @@ const Home = () => {
         Guac-A-Mole
       </h1>
       <h4 style={{ textAlign: "center", fontFamily: "sans-serif" }}>
-        Make the fastest and most delicious guacamole
+        Welcome to guacamole!
       </h4>
       <div>
         <Link to="/game">
@@ -29,7 +29,7 @@ const Home = () => {
               width: "80px",
             }}
           >
-            Start
+            Let's play
           </button>
         </Link>
       </div>

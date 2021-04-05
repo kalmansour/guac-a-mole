@@ -3,13 +3,13 @@ import { Route, Switch } from "react-router";
 
 // Components
 import Home from "../home/Home";
-import Game from "../game/Game";
+import Grid from "../game/Grid";
 
 const Routes = () => {
   return (
     <Switch>
       <Route path="/game">
-        <Game />
+        <Grid />
       </Route>
       <Route path="/">
         <Home />
