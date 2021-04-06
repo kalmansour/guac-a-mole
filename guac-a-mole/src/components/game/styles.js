@@ -34,7 +34,6 @@ export const Hole = styled.div`
 export const AvocadoImage = styled.img`
   height: 200px;
   width: 200px;
-  /* margin-left: 60px; */
 `;
 
 export const ImageContainer = styled.div`

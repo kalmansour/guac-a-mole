@@ -9,7 +9,6 @@ export const TimerStyled = styled.div`
 `;
 
 export const Title = styled.h1`
-  /* font-weight: bold; */
   font-size: 60px;
   text-align: "center";
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
