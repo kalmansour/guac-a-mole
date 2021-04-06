@@ -13,7 +13,7 @@ import {
 } from "./styles";
 
 export default class Timer extends Component {
-  state = { minutes: 0, seconds: 10 };
+  state = { minutes: 0, seconds: 15 };
   componentDidMount() {
     this.myInterval = setInterval(() => {
       const { seconds, minutes } = this.state;
@@ -48,9 +48,9 @@ export default class Timer extends Component {
           <container>
             <Container>
               <div>
-                <Title>Game Over</Title>
+                <Title>🥑Game Over🥑</Title>
                 <div>
-                  <Scoreboard>Score: {this.props.score} pts</Scoreboard>
+                  <Scoreboard>Your Score: {this.props.score} pts</Scoreboard>
                 </div>
               </div>
 
