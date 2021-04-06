@@ -1,3 +1,4 @@
+// Libraries
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -7,8 +8,8 @@ const Home = () => {
   return (
     <container>
       <Container>
-        <Title>Guac-A-Mole</Title>
-        <Subtitle>Challenge The Avocados & You Will Be Rewarded</Subtitle>
+        <Title>Guac-🥑-Mole</Title>
+        <Subtitle>Challenge The Avocado & You Will Be Rewarded</Subtitle>
         <div>
           <Link to="/game">
             <Button>Accept Challenge</Button>

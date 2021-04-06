@@ -3,7 +3,18 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 // Components
-import Timer from "./Timer";
+import Timer from "../timer/Timer";
+
+// Styles
+import {
+  Container,
+  Box,
+  Hole,
+  AvocadoImage,
+  ImageContainer,
+  Button,
+  ScoreBoard,
+} from "./styles";
 
 const Grid = () => {
   const [index, setIndex] = useState(0);
@@ -31,9 +42,8 @@ const Grid = () => {
     <container>
       <Container>
         {countdown ? <Timer score={score} /> : <></>}
-        <p>Score: {score} pts</p>
-        <h3>Time is ticking press start</h3>
-        <button onClick={startGame}>start</button>
+        <ScoreBoard>Score: {score} pts</ScoreBoard>
+        <Button onClick={startGame}>{countdown ? "⏳" : "Start"}</Button>
         <Box>
           <div>
             {Array(5)
@@ -67,44 +77,3 @@ const Grid = () => {
 };
 
 export default Grid;
-
-const Box = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  background-color: white;
-  border: solid;
-  border-color: #32cd32;
-  border-width: 5px;
-  margin: 20px 20px;
-  height: 600px;
-  width: 900px;
-  align-items: center;
-`;
-
-const Container = styled.div`
-  text-align: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Hole = styled.div`
-  background-color: black;
-  border: solid;
-  border-color: black;
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
-  margin-left: 50px;
-  margin: 10px;
-`;
-
-const AvocadoImage = styled.img`
-  height: 200px;
-  width: 200px;
-  margin-left: 60px;
-`;
-
-const ImageContainer = styled.div`
-  display: inline-block;
-`;
